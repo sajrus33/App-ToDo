@@ -4,15 +4,15 @@
   box-sizing: border-box;
   border: none;
   white-space: nowrap;
-  overflow: hidden;
-}
-
-body {
-  background-color: rgba(16, 55, 84);
-  background-color: rgba(51, 171, 177, 1);
   overflow-x: hidden;
+   font-family: 'Prompt', sans-serif;
+
+}
+body {
+  background-color: rgba(16, 55, 84,1);
+  background-color: rgba(51, 171, 177, 1);
   color: white;
-  font-family: "Promp";
+/*  font-family: 'Prompt', sans-serif; */
   font-weight: bold;
 }
 
@@ -20,7 +20,7 @@ body {
   width: 15px;
 }
 ::-webkit-scrollbar-track {
-  background-color: rgba(239, 171, 31);
+  background-color: rgba(239, 171, 31,1);
   box-shadow: inset 0 0 10px black;
 }
 ::-webkit-scrollbar-thumb {
@@ -35,7 +35,7 @@ body {
   border-radius: 50px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(14, 14, 14);
+  background-color: rgba(14, 14, 14,1);
 }
 
 .tip {
@@ -44,15 +44,15 @@ body {
   z-index: 999;
   width: 100vw;
   height: 70px;
-  background-color: rgba(239, 171, 31);
+  background-color: rgba(239, 171, 31,1);
   color: black;
   animation: tip 4s forwards;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1.3em;
-  white-space: wrap;
+  font-size: 1.15em;
+  white-space: no-wrap;
   pointer-events: none;
 }
 @keyframes tip {
@@ -77,13 +77,13 @@ body {
 }
 
 .colorCompose {
-  color: white;
+  color: black;
   background-color: rgba(51, 171, 177, 1);
 }
 button,
 input,
 select {
-  font-family: "Promp";
+  
   font-weight: bold;
 }
 button {
@@ -111,7 +111,7 @@ select::-ms-expand {
   width: 100%;
   height: 150px;
   min-height: 150px;
-  background-color: rgba(16, 55, 84);
+  background-color: rgba(16, 55, 84,1);
   /* flex C */
   display: flex;
   flex-direction: row;
@@ -162,6 +162,7 @@ select::-ms-expand {
   height: 30%;
   border: none;
   box-shadow: inset 0px -20px 10px -15px rgba(0, 0, 0, 0.75);
+  color: black;
   cursor: pointer;
   z-index: 1;
   /* flex C */
@@ -169,16 +170,26 @@ select::-ms-expand {
   align-items: center;
 }
 /*  */
-
+/* .editor__category:before{
+/*   box-sizing: border-box;
+  position: absolute;
+  content: "";
+  top: 0;
+  right:0;
+  width: 30px;
+  height: 32px;
+  border: 4px solid black;
+  border-radius: 5px;
+} */
 .editor__category:after {
   position: absolute;
   content: "";
-  top: 14px;
+  top: 15px;
   right: 10px;
   width: 0;
   height: 0;
   border: 10px solid transparent;
-  border-color: #fff transparent transparent transparent;
+  border-color: #000 transparent transparent transparent;
 }
 .editor__categorys {
   position: absolute;
@@ -254,7 +265,7 @@ select::-ms-expand {
 }
 .editor__describe--task {
   flex-grow: 1;
-  background-color: rgba(239, 171, 31);
+  background-color: rgba(239, 171, 31,1);
   border: none;
 }
 .editor__submit--task {
@@ -410,7 +421,7 @@ select::-ms-expand {
   align-items: flex-start;
 }
 .main__li {
-  background-color: rgba(239, 171, 31);
+  background-color: rgba(239, 171, 31,1);
 
   height: 10vh;
   min-height: 40px;
