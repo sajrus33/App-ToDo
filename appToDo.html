@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>ToDo App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <article class="editor">
+    <section class="editor__wrapper editor__wrapper--task displayFlex">
+      <div class="editor__panel editor__panel--task">
+        <div name="editor__category" class="editor__category colorCompose">
+          Choose category
+        </div>
+        <div class="editor__categorys">
+          <!-- add ur category -->
+        </div>
+        <input type="text" class="editor__describe--task">
+        <button class="editor__submit--task">Add</button>
+      </div>
+    </section>
+
+    <section class="editor__wrapper editor__wrapper--search displayFlex">
+      <form action="" class="editor__panel editor__panel--search">
+        <input value="Search" class="editor__search" type="text" />
+      </form>
+      <button class="editor__create">Create Category</button>
+    </section>
+
+    <section class="editor__wrapper editor__wrapper--category">
+      <input value="New Category" class="editor__describe--category colorCompose" type="text" />
+      <select name="editor__category--bgc" class="editor__category--bgc colorCompose">
+        <option style="display: none" value="" class="editor__color editor__color--orange">background color</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--000000">#000000</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--FFFFFF">#FFFFFF</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--FFF200">#FFF200</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--FD9406">#FD9406</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--FF0000">#FF0000</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--FF0080">#FF0080</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--0080FF">#0080FF</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--0000FF">#0000FF</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--004000">#004000</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--00FF00">#00FF00</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--1C2168">#1C2168</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--800080">#800080</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--804040">#804040</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--D74F6D">#D74F6D</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--C0C0C0">#C0C0C0</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--008080">#008080</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--808000">#808000</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--80FF80">#80FF80</option>
+      </select>
+      <select name="editor__category--font" class="editor__category--font colorCompose" id="editor__category--font">
+        <option style="display: none" value="" class="editor__color editor__color--orange">font color</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--000000">#000000</option>
+        <option value="" class="editor__color editor__color--bgc editor__color--FFFFFF">#FFFFFF</option>
+        <option value="" class="editor__color editor__color--font editor__color--FFF200">#FFF200</option>
+        <option value="" class="editor__color editor__color--font editor__color--FD9406">#FD9406</option>
+        <option value="" class="editor__color editor__color--font editor__color--FF0000">#FF0000</option>
+        <option value="" class="editor__color editor__color--font editor__color--FF0080">#FF0080</option>
+        <option value="" class="editor__color editor__color--font editor__color--0080FF">#0080FF</option>
+        <option value="" class="editor__color editor__color--font editor__color--0000FF">#0000FF</option>
+        <option value="" class="editor__color editor__color--font editor__color--004000">#004000</option>
+        <option value="" class="editor__color editor__color--font editor__color--00FF00">#00FF00</option>
+        <option value="" class="editor__color editor__color--font editor__color--1C2168">#1C2168</option>
+        <option value="" class="editor__color editor__color--font editor__color--800080">#800080</option>
+        <option value="" class="editor__color editor__color--font editor__color--804040">#804040</option>
+        <option value="" class="editor__color editor__color--font editor__color--D74F6D">#D74F6D</option>
+        <option value="" class="editor__color editor__color--font editor__color--C0C0C0">#C0C0C0</option>
+        <option value="" class="editor__color editor__color--font editor__color--008080">#008080</option>
+        <option value="" class="editor__color editor__color--font editor__color--808000">#808000</option>
+        <option value="" class="editor__color editor__color--font editor__color--80FF80">#80FF80</option>
+      </select>
+      <div class="editor__nav--category">
+        <button class="editor__submit--category">Create</button>
+        <button class="editor__cancel--category">Back</button>
+      </div>
+    </section>
+  </article>
+
+  <ul class="main">
+    <!-- add ur task -->
+    <!-- <li class="main__li">
+      <button class="main__button main__button--done"></button>
+      <p class="main__task">zadanie szybkie</p>
+      <button class="main__button main__button--edit"></button>
+      <button class="main__button main__button--delete"></button>
+    </li> -->
+  </ul>
+  <footer class="footer">
+    <address class="footer__adress">
+      ToDo &copy; Brianwala22@gmail.com
+    </address>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
