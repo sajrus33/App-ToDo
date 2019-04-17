@@ -451,11 +451,11 @@ searchInput.addEventListener("click", function () {
   event.target.value = "";
 });
 // change search editor into create category editor
-btnCreateCategory.addEventListener("click", toggleMenu);
+btnCreateCategory.addEventListener("click", toggleMenu, { passive: true });
 btnCreateCategory.addEventListener("touchstart", toggleMenu);
 
 // change create category editor into search editor
-btnCategoryBack.addEventListener("click", toggleMenu);
+btnCategoryBack.addEventListener("click", toggleMenu, { passive: true });
 btnCategoryBack.addEventListener("touchstart", toggleMenu);
 
 // task ADD button listener (adding task on click)
