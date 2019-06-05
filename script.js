@@ -6,7 +6,7 @@ let canLocalStorage = false;
 const taskCharLimit = 58;
 //char limit for category
 const categoryCharLimit = 15;
-//flag 
+//flag
 let categorySelected = false;
 // history + statistics soon !
 let history = {
@@ -29,12 +29,10 @@ let locals = {
   }
 };
 
-
-
-
 // test if localStorage exist
 function testLocalStorage() {
-  try {//try to storage some data in LocalStorage
+  try {
+    //try to storage some data in LocalStorage
     localStorage.setItem("foo", "foo");
     localStorage.removeItem("foo");
 
@@ -54,7 +52,7 @@ function init() {
     myAlert("We are sorry but you cannot use localStorage");
   } else {
     //     if user can localStorage than load JSON datas, if it exist
-    console.log("great local storage working");
+    // console.log("great local storage working");
     canLocalStorage = testLocalStorage();
     const storagedCategory = JSON.parse(localStorage.getItem("catTxt"));
     const storagedBgc = JSON.parse(localStorage.getItem("catBgc"));
@@ -78,15 +76,11 @@ function init() {
       });
     }
   }
-
 }
 
-
-
-
-// my own alert() function 
+// my own alert() function
 function myAlert(describe) {
-  //   get old myAlert 
+  //   get old myAlert
   const oldAlert = document.querySelector(".tip");
   //   if exist
   if (oldAlert) {
@@ -100,9 +94,6 @@ function myAlert(describe) {
   newAlert.innerText = describe;
   document.body.appendChild(newAlert);
 }
-
-
-
 
 //DOM categorys list
 const categoryList = document.querySelector(".editor__category");
@@ -122,10 +113,6 @@ function reoladCategorys() {
     category.addEventListener("click", selectCategory);
   });
 }
-
-
-
-
 
 //DOM create task editor
 const btnTaskSubmit = document.querySelector(".editor__submit--task");
@@ -149,9 +136,6 @@ function reoladList() {
   btnsDelete.forEach(item => item.addEventListener("click", deleteTask));
 }
 
-
-
-
 //DOM new category panel editor
 const createPanel = document.querySelector(".editor__wrapper--category");
 
@@ -162,13 +146,7 @@ const selectCategoryFont = document.querySelector(".editor__category--font");
 const btnCategorySubmit = document.querySelector(".editor__submit--category");
 const btnCategoryBack = document.querySelector(".editor__cancel--category");
 
-
-
-
-
-
 //                                                  ! Main App Engine Functions !
-
 
 //toggle editors search/create category
 function toggleMenu() {
@@ -176,8 +154,7 @@ function toggleMenu() {
   createPanel.classList.toggle("displayFlex");
 }
 
-
-// search function 
+// search function
 const searchTask = e => {
   const searchText = e.target.value.toLowerCase().trim();
   let activeTasks = [...tasks];
@@ -196,12 +173,7 @@ const searchTask = e => {
   });
 };
 
-
-
-
-
 //           tasks menagment
-
 
 // under function push taks bgc, txt, color to localStorage
 function setLocalTasks() {
@@ -212,7 +184,8 @@ function setLocalTasks() {
 
 // create task function
 const createTask = (describe, bgc, fontColor, create) => {
-  if (create) {//if this function is creating new category, than check if its fit to our Limits and have all argument
+  if (create) {
+    //if this function is creating new category, than check if its fit to our Limits and have all argument
     // if this function is not creating that mean its loading old ones from LocalStorage
     let alreadyExist = false;
     if (!categorySelected) return myAlert("Pick category!");
@@ -221,7 +194,8 @@ const createTask = (describe, bgc, fontColor, create) => {
       return myAlert(
         "Task describe is too long, max " + taskCharLimit + " characters"
       );
-    if (tasks) {//check if new task name is not a duplicate
+    if (tasks) {
+      //check if new task name is not a duplicate
       tasks.forEach(cat => {
         if (cat.innerText === describe) {
           alreadyExist = true;
@@ -239,7 +213,7 @@ const createTask = (describe, bgc, fontColor, create) => {
   const newDone = document.createElement("button");
   newDone.classList.add("main__button");
   newDone.classList.add("main__button--done");
-  //create element p 
+  //create element p
   const newDescribe = document.createElement("p");
   newDescribe.classList.add("main__task");
   newDescribe.innerText = describe;
@@ -260,14 +234,10 @@ const createTask = (describe, bgc, fontColor, create) => {
     locals.task.txt.push(describe);
     locals.task.bgc.push(bgc);
     locals.task.color.push(fontColor);
-    //     updated tasks dependencies array put into LocalStorage 
+    //     updated tasks dependencies array put into LocalStorage
     setLocalTasks();
   }
 };
-
-
-
-
 
 // categorys menagment
 
@@ -287,8 +257,8 @@ const createCategory = (describe, bgc, fontColor, create) => {
     if (describe.length > categoryCharLimit)
       return myAlert(
         "Category describe is too long, max " +
-        categoryCharLimit +
-        " characters"
+          categoryCharLimit +
+          " characters"
       );
     if (categorys) {
       categorys.forEach(cat => {
@@ -322,7 +292,6 @@ const createCategory = (describe, bgc, fontColor, create) => {
   }
 };
 
-
 // delete category function (for categorys delete buttons listeners)
 const deleteCategory = e => {
   //   look for index of clicked category
@@ -343,7 +312,6 @@ const deleteCategory = e => {
   }
 };
 
-
 // select category function (for existing category to choose, listener)
 const selectCategory = e => {
   //   close, categorys choosing menu
@@ -358,18 +326,15 @@ const selectCategory = e => {
   }
 };
 
-
-
-
 //another under functions for listeners
 
-// change select bgc 
+// change select bgc
 function setSelectBgc() {
   this.style.backgroundColor = this.options.item(this.selectedIndex).text;
   this.previousElementSibling.style.backgroundColor = this.style.backgroundColor;
 }
 
-// change select font color 
+// change select font color
 function setSelectFontColor() {
   this.style.backgroundColor = this.options.item(this.selectedIndex).text;
   this.previousElementSibling.previousElementSibling.style.color = this.style.backgroundColor;
@@ -422,14 +387,14 @@ const doneTask = e => {
   }
 };
 
-//                                  INIT.. LISTENERS !  
+//                                  INIT.. LISTENERS !
 
 //creating category editor listeners
 selectCategoryBgc.addEventListener("change", setSelectBgc, true);
 selectCategoryFont.addEventListener("change", setSelectFontColor, true);
 categoryList.addEventListener("change", setSelectBoth);
 
-btnCategorySubmit.addEventListener("click", function () {
+btnCategorySubmit.addEventListener("click", function() {
   createCategory(
     categoryDescribe.value,
     categoryDescribe.style.backgroundColor,
@@ -438,7 +403,7 @@ btnCategorySubmit.addEventListener("click", function () {
   );
 });
 
-categoryList.addEventListener("click", function () {
+categoryList.addEventListener("click", function() {
   if (categorys && categorys.length) {
     categorysWrappper.classList.toggle("displayFlex");
   } else {
@@ -447,7 +412,7 @@ categoryList.addEventListener("click", function () {
 });
 
 searchInput.addEventListener("input", searchTask);
-searchInput.addEventListener("click", function () {
+searchInput.addEventListener("click", function() {
   event.target.value = "";
 });
 // change search editor into create category editor
@@ -461,7 +426,7 @@ btnCategoryBack.addEventListener("touchstart", toggleMenu, { passive: true });
 // task ADD button listener (adding task on click)
 btnTaskSubmit.addEventListener(
   "click",
-  function () {
+  function() {
     //     create new task with current arguments, from user interfejs
     createTask(
       taskDescribe.value,
@@ -473,14 +438,14 @@ btnTaskSubmit.addEventListener(
   false
 );
 // create category on Enter
-categoryDescribe.addEventListener("keyup", function (event) {
+categoryDescribe.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
     event.preventDefault();
     btnCategorySubmit.click();
   }
 });
 // create task on Enter
-taskDescribe.addEventListener("keyup", function (event) {
+taskDescribe.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
     event.preventDefault();
     btnTaskSubmit.click();
@@ -488,6 +453,3 @@ taskDescribe.addEventListener("keyup", function (event) {
 });
 // on window load run init function (checking if can local storage, loading already existing ones(by getting them from localStorage and creating with task/category create function.))
 window.onload = init;
-
-
-
