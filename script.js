@@ -1,3 +1,4 @@
+// @@@ zindex categroys created are behinde tasks !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 "use strict";
 
 // change if localStorage is not avaiable or full
@@ -6,7 +7,7 @@ let canLocalStorage = false;
 const taskCharLimit = 58;
 //char limit for category
 const categoryCharLimit = 15;
-//flag
+//flag for category seleceted
 let categorySelected = false;
 // history + statistics soon !
 let history = {
@@ -60,7 +61,8 @@ function init() {
     if (storagedCategory) {
       storagedCategory.forEach((category, i) => {
         createCategory(
-          storagedCategory[i],
+          // storagedCategory[i],
+          category,
           storagedBgc[i],
           storagedFontColor[i],
           false
@@ -352,8 +354,13 @@ function setSelectBoth() {
 const deleteTask = e => {
   e.target.parentNode.style.backgroundColor = "black";
   e.target.parentNode.style.color = "black";
+  const toDelet = locals.task.txt.indexOf(
+    e.target.previousElementSibling.innerText
+  );
   e.target.style.display = "none";
-  const toDelet = locals.task.txt.indexOf(e.target.innerText);
+
+  console.log({ toDelet });
+
   setTimeout(() => {
     e.target.parentNode.remove();
     reoladList();
@@ -367,10 +374,13 @@ const deleteTask = e => {
     setLocalTasks();
   }
 };
+//
 
 // done task function (for task delete X button)
 const doneTask = e => {
-  const toDelet = locals.task.txt.indexOf(e.target.innerText);
+  const toDelet = locals.task.txt.indexOf(
+    e.target.nextElementSibling.innerText
+  );
   for (let prop in locals.task) {
     if (locals.task.hasOwnProperty(prop)) {
       locals.task[prop].splice(toDelet, 1);
